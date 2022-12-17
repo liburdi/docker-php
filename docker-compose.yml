@@ -1,0 +1,41 @@
+version: '3.2'
+
+services:
+
+  gt_api_nginx:
+    build: docker/nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/app
+    environment:
+      - TZ=Asia/Shanghai
+  gt_api_php:
+    build: docker/php-fpm
+    volumes:
+      - ./:/app
+    environment:
+      - TZ=Asia/Shanghai
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=baohoo
+      - MYSQL_ROOT_USER=root
+      - MYSQL_PASSWORD=root
+      - TZ=Asia/Shanghai
+  redis:
+    image: redis:3
+    volumes:
+      - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+    - 6379:6379
+  #pgsql:
+  #  image: postgres:9.5
+  #  environment:
+  #    - POSTGRES_DB=yii2advanced
+  #    - POSTGRES_USER=yii2advanced
+  #    - POSTGRES_PASSWORD=secret
