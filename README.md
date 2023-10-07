@@ -1,7 +1,7 @@
 ### setup1
 
 ```
- mv php-docker-demo/* project's path
+ mv docker-php/* project's path
  cd project's path
 ```
 
