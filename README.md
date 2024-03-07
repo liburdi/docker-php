@@ -1,3 +1,18 @@
+### setup0
+更换国内镜像源
+```
+vim etc/docker/daemon.json
+
+
+
+{
+    "registry-mirrors":["https://docker.mirrors.ustc.edu.cn"]
+}
+
+
+
+```
+
 ### setup1
 
 ```
