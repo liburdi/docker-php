@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
 
-  gt_api_nginx:
+  nginx:
     build: docker/nginx
     ports:
       - 8080:80
@@ -10,7 +10,7 @@ services:
       - ./:/app
     environment:
       - TZ=Asia/Shanghai
-  gt_api_php:
+  php:
     build: docker/php-fpm
     volumes:
       - ./:/app

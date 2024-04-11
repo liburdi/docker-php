@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.4-fpm
 ADD https://github.com/phpredis/phpredis/archive/3.1.4.tar.gz /tmp/redis.tar.gz
 RUN tar xzf /tmp/redis.tar.gz -C /tmp \
     && mkdir -p /usr/src/php/ext \
