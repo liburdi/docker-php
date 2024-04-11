@@ -1,7 +1,7 @@
 ### setup0
 更换国内镜像源
 ```
-vim etc/docker/daemon.json
+vim /etc/docker/daemon.json
 
 
 
