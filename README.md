@@ -14,10 +14,11 @@ vim /etc/docker/daemon.json
 ```
 
 ### setup1
+在项目目录下
 
 ```
- mv docker-php/* project's path
- cd project's path
+git clone https://github.com/liburdi/docker-php.git
+mv docker-php/* ./
 ```
 
 ### setup2
