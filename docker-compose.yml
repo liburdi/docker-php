@@ -11,11 +11,17 @@ services:
     environment:
       - TZ=Asia/Shanghai
   php:
+    container_name: my-php
     build: docker/php-fpm
     volumes:
       - ./:/app
+      - ./docker/docker-php-ext-xdebug.ini:/usr/local/etc/conf.d/docker-php-ext-xdebug.ini
+      - ./storage/log:/data/log
+      - ./docker/env.php:/app/env.php
     environment:
       - TZ=Asia/Shanghai
+    ports:
+      - 9000:9000
 
   mysql:
     image: mysql:5.7
@@ -33,9 +39,3 @@ services:
       - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
     - 6379:6379
-  #pgsql:
-  #  image: postgres:9.5
-  #  environment:
-  #    - POSTGRES_DB=yii2advanced
-  #    - POSTGRES_USER=yii2advanced
-  #    - POSTGRES_PASSWORD=secret
